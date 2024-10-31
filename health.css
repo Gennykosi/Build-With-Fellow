@@ -98,7 +98,15 @@
 #medical-history-screen{
     padding: 20px;
 }
-
+#profile-screen{
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 60px;
+  align-items: center;
+}
+#feedback-screen{
+  padding: 20px;
+}
   .doctor-list button {
     width: 80%;
     margin-bottom: 10px;
