@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone App - Multiple Screens</title>
+  <link rel="stylesheet" href="health.css">
+</head>
+<body>
+
+  <!-- First Screen -->
+  <section id="first-screen" class="screen active">
+    <h1>Welcome to EasyReach Health</h1>
+    <br>
+    <p>Your health at your fingertips. Get medical advice, book appointments, and much more.</p>
+    <br>
+    <button onclick="navigateTo('second-screen')">Next</button>
+  </section>
+
+  <!-- Second Screen-->
+  <section id="second-screen" class="screen">
+    <div class="header">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRodFjLv7sNu35RrNEkF4qwptZlvTbhGToYHw&s" alt="Hospital Header">
+    </div>
+    <br>
+    <br>
+    <div class="content">
+      <input type="text" placeholder="Email/Phone" required>
+      <input type="password" placeholder="Password" required>
+      <div class="buttons">
+        <button onclick="navigateTo('user-dashboard')">Login</button>
+        <button onclick="navigateTo('signup-screen')">Sign Up</button>
+      </div>
+      <a href="#">Forgot Password?</a>
+      <button class="back-btn" onclick="navigateTo('first-screen')">Back</button>
+    </div>
+  </section>
+
+<!-- Quick Links Section -->
+ <section id="user-dashboard" class="screen">
+<div class="quick-links">
+  <h2>User dashboard</h2>
+  <div class="links">
+    <button onclick="navigateTo('profile-screen')">Profile</button>
+    <button onclick="navigateTo('third-screen')">Medical Teams</button>
+    <button onclick="navigateTo('medical-history-screen')">Medical History</button>
+    <button onclick="navigateTo('profile-screen')">Settings</button>
+    <button onclick="navigateTo('feedback-screen')">Feedback and Health Tips</button>
+  </div>
+</div>
+
+<!-- Recent Activity Section -->
+<div class="recent-activity">
+  <h2>Recent Activity</h2>
+  <ul>
+    <li>Appointment with Dr. John Doe on Oct 24, 2024</li>
+    <li>Updated profile information</li>
+    <li>Checked medical history</li>
+  </ul>
+</div>
+
+<!-- Upcoming Appointments Section -->
+<div class="upcoming-appointments">
+  <h2>Upcoming Appointments</h2>
+  <ul>
+    <li>Dr. Jane Smith - Oct 28, 2024 at 2:00 PM</li>
+    <li>Dr. Sam Brown - Nov 3, 2024 at 11:30 AM</li>
+  </ul>
+</div>
+
+<!-- Logout Button -->
+<button class="back-btn" onclick="navigateTo('second-screen')">Back</button>
+<button class="logout-btn" onclick="navigateTo('second-screen')">Logout</button>
+</section>
+
+<!-- Medical History Screen -->
+<section id="medical-history-screen" class="screen">
+  <h1>Medical History</h1>
+<br>
+<br>
+  <!-- Personal Info -->
+  <div class="personal-info">
+    <h2>Patient Information</h2>
+    <br>
+    <p>Name: John Doe</p>
+    <p>Age: 35</p>
+    <p>Blood Type: O+</p>
+    <p>Allergies: None</p>
+  </div>
+
+  <!-- Medical Records -->
+  <div class="medical-records">
+    <h2>Medical Records</h2>
+    <ul>
+      <li>2023-05-15: Annual Physical Exam - Dr. Jane Smith</li>
+      <li>2023-04-10: Blood Test - Normal</li>
+      <li>2022-11-22: X-ray for chest pain - No issues found</li>
+      <li>2022-05-10: Flu Vaccination</li>
+    </ul>
+  </div>
+
+  <!-- Past Appointments -->
+  <div class="appointments">
+    <h2>Past Appointments</h2>
+    <ul>
+      <li>2023-08-01: Dr. John Doe - General Consultation</li>
+      <li>2023-06-14: Dr. Jane Smith - Follow-up Visit</li>
+    </ul>
+  </div>
+ <!-- Prescriptions -->
+ <div class="prescriptions">
+  <h2>Prescriptions</h2>
+  <ul>
+    <li>Ibuprofen 400mg - Take 1 tablet every 8 hours as needed</li>
+    <li>Amoxicillin 500mg - Complete course</li>
+  </ul>
+</div>
+
+  <button class="back-btn" onclick="navigateTo('user-dashboard')">Back to Dashboard</button>
+</section>
+
+
+
+
+<section id="profile-screen" class="screen">
+  <h1>User Profile</h1>
+
+  <!-- Profile Photo Section -->
+  <div class="profile-photo">
+    <img src="profile-photo-placeholder.png" alt="Profile Photo" id="profilePhoto">
+    <button onclick="uploadPhoto()">Upload New Photo</button>
+  </div>
+
+  <!-- User Information Section -->
+  <div class="user-info">
+    <label for="name">Name</label>
+    <input type="text" id="name" value="John Doe" readonly>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" value="john.doe@example.com" readonly>
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" value="123-456-7890" readonly>
+
+    <label for="address">Address</label>
+    <input type="text" id="address" value="1234 Elm St, Cityville" readonly>
+
+    <!-- Edit and Save Button -->
+    <button id="edit-save-btn" onclick="editProfile()">Edit Profile</button>
+  </div>
+
+  <!-- Back to Dashboard Button -->
+  <button class="back-btn" onclick="navigateTo('user-dashboard')">Back to Dashboard</button>
+</section>
+
+<!-- Appointment Booking Screen -->
+ <section id="appointments-screen" class="screen">
+  <h1>Book an Appointment</h1>
+
+  <!-- Doctor Details -->
+  <div class="doctor-info">
+    <img src="doctor-photo.png" alt="Doctor Photo" id="doctorPhoto">
+    <div>
+      <h2>Dr. Jane Smith</h2>
+      <p>Specialty: Cardiologist</p>
+      <p>Contact: jane.smith@example.com</p>
+      <p>Phone: 123-456-7890</p>
+    </div>
+  </div>
+
+  <!-- Appointment Form -->
+  <form id="appointment-form">
+    <label for="appointment-date">Select Date:</label>
+    <input type="date" id="appointment-date" required>
+
+    <label for="appointment-time">Select Time:</label>
+    <input type="time" id="appointment-time" required>
+
+    <label for="patient-name">Your Name:</label>
+    <input type="text" id="patient-name" placeholder="Your Full Name" required>
+
+    <label for="patient-contact">Your Contact:</label>
+    <input type="text" id="patient-contact" placeholder="Your Contact Number" required>
+
+    <button type="submit">Book Appointment</button>
+  </form>
+
+  <button class="back-btn" onclick="navigateTo('user-dashboard')">Back to Dashboard</button>
+</section>
+
+<!-- Signup Screen -->
+<section id="signup-screen" class="screen">
+  <div class="header">
+    <h2>Sign Up</h2>
+  </div>
+  <div class="content">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <input type="password" placeholder="Confirm Password" required>
+    <button onclick="submitSignup()">Create Account</button>
+    <button onclick="navigateTo('second-screen')">Back</button>
+  </div>
+</section>
+
+<!-- Doctors Screen: Medical Team -->
+<section id="third-screen" class="screen">
+    <h2>Our Medical Team</h2>
+    <br>
+    <p class="team-info">
+      Our team of experienced doctors is committed to providing you with personalized care and expert medical advice.
+      You can consult them for general health concerns, chronic conditions, and preventive care. Each consultation is aimed 
+      at delivering high-quality medical assistance to meet your unique needs.
+    </p>
+  
+    <p class="team-expectation">
+      Here's what you can expect from your consultation:
+      <ul>
+        <li>Detailed discussions about your health concerns.</li>
+        <li>Personalized treatment plans or preventive health advice.</li>
+        <li>Clear instructions for follow-ups or further tests, if needed.</li>
+        <li>Confidentiality and respectful interactions at all times.</li>
+      </ul>
+    </p>
+
+    <div class="emergency-contact">
+      <h2>Emergency Contact</h2>
+      <p>If you need immediate assistance, please call:</p>
+      <p class="emergency-number">Emergency Number: <a href="tel:+2348104086033">+234 8104080000</a></p>
+    </div>
+
+
+    <div class="doctor-list">
+      <!-- List of Doctors -->
+      <button onclick="showDoctorDetails('Dr. John Doe', 'Cardiologist', '1234567890', 'john@example.com')">Dr. John Doe</button>
+      <button onclick="showDoctorDetails('Dr. Jane Smith', 'Dermatologist', '9876543210', 'jane@example.com')">Dr. Jane Smith</button>
+      <button onclick="showDoctorDetails('Dr. Sam Brown', 'Pediatrician', '4567891230', 'sam@example.com')">Dr. Sam Brown</button>
+      <button onclick="showDoctorDetails('Dr. Emily White', 'Neurologist', '6543210987', 'emily@example.com')">Dr. Emily White</button>
+      
+      <button class="back-btn" onclick="navigateTo('user-dashboard')">Back</button>
+    </div>
+  </section>
+
+  <!-- Doctor Details Screen -->
+  <section id="doctor-details-screen" class="screen">
+    <div class="header">
+      <h2 id="doctor-name"></h2>
+      <p id="doctor-specialty"></p>
+    </div>
+    <div class="content">
+      <p>Contact Number: <span id="doctor-contact"></span></p>
+      <p>Email: <span id="doctor-email"></span></p>
+      <button onclick="navigateTo('appointments-screen')">Book Appointment</button>
+      <button class="back-btn" onclick="navigateTo('third-screen')">Back</button>
+    </div>
+  </section>
+
+ 
+<section>
+  <!-- Fourth Screen: Feedback Form and Health Tips -->
+  <section id="feedback-screen" class="screen">
+    <h2 class="heed">Feedback Form</h2>
+    <br>
+    <p>This feedback helps us to understand you more and serve you better </p>
+    <form id="feedback-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Feedback" rows="4" required></textarea>
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <h2>Health Tips</h2>
+    <ul>
+      <li>Drink plenty of water every day.</li>
+      <li>Exercise regularly for at least 30 minutes.</li>
+      <li>Get at least 7-8 hours of sleep every night.</li>
+      <li>Maintain a balanced diet with fruits and vegetables.</li>
+      <li>Stay up-to-date with health checkups.</li>
+    </ul>
+
+    <button class="back-btn" onclick="navigateTo('user-dashboard')">Back</button>
+  </section>
+
+  <script src="health.js"></script>
+</body>
+</html>
